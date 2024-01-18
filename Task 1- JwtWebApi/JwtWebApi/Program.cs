@@ -15,7 +15,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IUserService, UserService>();
 
 
-builder.Services.AddSwaggerGen(options =>
+builder.Services.AddSwaggerGen(options =>   //configuring swagger for API documentation
 {
     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {
@@ -26,6 +26,7 @@ builder.Services.AddSwaggerGen(options =>
 
     options.OperationFilter<SecurityRequirementsOperationFilter>();
 });
+
 builder.Services.AddAuthentication().AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
